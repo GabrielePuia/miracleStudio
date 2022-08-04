@@ -1,0 +1,33 @@
+//Scrollbar style
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #222;
+}
+::-webkit-scrollbar-thumb {
+	background: #444;
+	border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+//Text selection style
+::selection {
+	color: $brand-primary;
+	background: $brand-secondary;
+}
+body {
+	background: $brand-primary;
+	padding-top: $header-height;
+	overflow-x: hidden;
+	font-size: 20px;
+}
+img {
+	max-width: 100%;
+}
+ul, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}

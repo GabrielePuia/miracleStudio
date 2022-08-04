@@ -1,0 +1,35 @@
+//Typography variables
+$font-titles: 'Miracle', serif;
+//$font-paragraphs: 'Montserrat', sans-serif;
+//$font-paragraphs: 'Playfair Display', serif;
+//$font-paragraphs: 'Merriweather', serif;
+$font-paragraphs: 'Cormorant Garamond', serif;
+
+//Brand variables
+$brand-primary: #111111;
+$brand-secondary: #dddddd;
+$brand-secondary-light: #ffffff;
+$brand-secondary-dark: #cccccc;
+
+//Social Media Icons Color
+$facebook: #3B5999;
+$twitter: #1DA1F2;
+$pinterest: #CB2028;
+$youtube: #CC332D;
+$reddit: #FF4500;
+
+//Bootstrap breakpoints
+// ------------------------------------------
+$xs: 400px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+//transition
+$default-transition: all 0.3s;
+$default-transition-time: 0.3s;
+
+//custom
+$header-height: 100px;

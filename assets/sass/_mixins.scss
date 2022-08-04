@@ -1,0 +1,61 @@
+// Transition
+@mixin transition($duration:0.2s) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+// Breakpoints
+@mixin min-screen($resolution) {
+  @media screen and (min-width: $resolution) {
+    @content;
+  }
+}
+
+@mixin max-screen($resolution) {
+  @media screen and (max-width: $resolution - 1) {
+    @content;
+  }
+}
+
+// Custom
+@mixin setDimensions($width, $height) {
+  width: $width;
+  height: $height;
+  
+}
+//Flex
+@mixin flex-wrap($direction: row, $wrap: wrap,) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+@mixin flex-direction-justify-align($direction: row, $justify: stretch, $align: stretch){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-direction-justify($direction: row, $justify: stretch){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+@mixin flex-direction-align($direction: row, $align: stretch){
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+}
+@mixin flex-justify-align($justify: stretch, $align: stretch) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex-justify($justify: stretch) {
+  display: flex;
+  justify-content: $justify;
+}
+@mixin flex-align($align: stretch) {
+  display: flex;
+  align-items: $align;
+}
