@@ -1,0 +1,28 @@
+.clients {
+    padding-top: 310px;//less then 400 because the last project simulate empty space if not hovered
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
+            img {
+                height: 80px;
+            }
+            &:nth-of-type(2) {
+                img {
+                    height: 45px;
+                }
+            }
+            &:nth-of-type(3) {
+                img {
+                    height: 80px;
+                }
+            }
+            &:nth-of-type(4) {
+                img {
+                    height: 60px;
+                }
+            }
+        }
+    }
+}

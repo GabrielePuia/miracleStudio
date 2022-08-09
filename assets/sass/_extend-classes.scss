@@ -27,3 +27,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+//container/spacings
+%custom_container {
+    width: 100%;
+    max-width: 1200px;
+}

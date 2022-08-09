@@ -1,0 +1,81 @@
+.menu {
+    position: fixed;
+    top: $header-height;
+    right: 0;
+    @include setDimensions(100vw, calc(100vh - #{$header-height}));
+    background-color: $brand-primary;
+    @include flex-direction-align(column);
+    display: none;
+    opacity: 0;
+    z-index: 2;
+
+    hr {
+        background-color: #dedede;
+        width: 0;
+        transform-origin: right;
+        @extend %no-spacing;
+    }
+
+    &.collapsed {
+        left: -1px;
+    }
+    &__body {
+        height: 100%;
+        li {
+            overflow: hidden;
+        }
+        .row {
+            height: 100%;
+            .menu__links-column {
+                height: 100%;
+                @include flex-justify-align(center, center);
+                .menu__links {
+                    li {
+                        margin-bottom: 20px;
+                        &:last-of-type {
+                            margin: 0;
+                        }
+                        a {
+                            font-size: 72px;
+                            font-family: $font-titles;
+                            /*&:hover {
+                                &::before {
+                                    width: 100%;
+                                }
+                            }*/
+                            &::before {
+                                height: 2px;
+                                transition: width 0.5s cubic-bezier(1, 0, 0.24, 1);
+                            }
+                        }
+                    }
+                }
+            }
+            .menu__content-column {
+                @include flex-align(center);
+                .menu__content {
+                    //max-width: 500px;
+                    .text_logo {
+                        font-size: 84px;
+                        margin-bottom: 20px;
+                    }
+                    .menu__paragraph {
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    .contact_list {
+                        @include flex-direction-align(row, center);
+                        li {
+                            margin-right: 30px;
+                            a {
+                                &::before {
+                                    content: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

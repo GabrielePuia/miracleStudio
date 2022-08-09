@@ -1,3 +1,51 @@
 .footer {
-    opacity: 1;
+    padding: 400px 20px 60px;
+    &__contacts {
+        margin-bottom: 90px;
+        .contacts {
+            &__title {
+                display: block;
+                width: 660px;
+                margin: 0 auto;
+                @include font-size(60);
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            &__list {
+                display: flex;
+                align-items: center;
+                gap: 80px;
+                justify-content: center;
+                li {
+                    position: relative;
+                    &:not(:last-of-type) {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 100%;
+                            background-color: $brand-secondary;
+                            top: 50%;
+                            right: -40px;
+                            transform: translate(-50%, -50%);
+
+                        }
+                    }
+                    a {
+                        @include font-size(24);
+                    }
+                }
+            }
+        }
+    }
+    &__last_row {
+        display: flex;
+        gap: 60px;
+        justify-content: center;
+        span, span a {
+            color: $light-grey;
+            @include font-size(18);
+        }
+    }
 }

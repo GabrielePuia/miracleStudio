@@ -1,4 +1,45 @@
 .hero {
     height: 100vh;
+    .container {
+        position: relative;
+        height: 100%;
+        @include flex-justify-align(center, center);
+    }
+    &__image {
+        max-height: 80vh;
+        border-top-left-radius: 256px;
+        @include max-screen($xxl) {
+            max-height: 85vh;
+        }
+        @include max-screen($xl) {
+            max-height: 90vh;
+        }
+    }
+    &__title {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
+        font-size: 290px;
+    }
+    &__subtitle {
+        font-family: $font-paragraphs;
+        font-size: 36px;
+        position: absolute;
+        top: 30%;
+        left: 0;
+    }
+    &__cta {
+        position: absolute;
+        bottom: 10vh;
+        right: 0;
+        @include max-screen($xxl) {
+            bottom: 7.5vh;
+        }
+        @include max-screen($xl) {
+            bottom: 5vh;
+        }
+    }
 }
 

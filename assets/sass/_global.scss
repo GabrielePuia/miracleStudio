@@ -17,17 +17,29 @@
 	color: $brand-primary;
 	background: $brand-secondary;
 }
+html {
+	//Scrollbar style for mozilla
+	scrollbar-width: thin;
+	scrollbar-color: #222 #444;
+	font-size: 10px;
+}
 body {
-	background: $brand-primary;
-	padding-top: $header-height;
-	overflow-x: hidden;
-	font-size: 20px;
+	//padding-top: $header-height;
+	background-color: $brand-primary;
+	color: $brand-secondary;
 }
 img {
 	max-width: 100%;
+	height: auto;
 }
-ul, li {
+ul,
+li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+.small_divider {
+	width: 50px;
+	border-color: $brand-secondary;
+	opacity: 1;
 }

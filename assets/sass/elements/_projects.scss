@@ -1,3 +1,85 @@
-.projects__container {
-    opacity: 1;
+.projects {
+    &__content {
+        margin: 0 auto;
+       /* @include max-screen($xxl) {
+            width: 1100px;
+        }*/
+    }
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+        /*@include max-screen($xxl) {
+            justify-content: space-between;
+        }*/
+    }
+    &__column {
+        &:last-of-type {
+            margin-top: 270px;
+            @include max-screen($xxxl) {
+                margin-top: 240px;
+            }
+            @include max-screen($xxl) {
+                margin-top: 210px;
+            }
+        }
+    }
+    .project {
+        display: block;
+        &:not(:last-of-type) {
+            margin-bottom: 180px;
+        }
+        &:hover {
+            .project__image {
+                transform: scale(1.01);
+                filter: blur(0);
+            }
+            .project__category {
+                opacity: 1;
+            }
+            .project__title {
+                opacity: 1;
+            }
+        }
+        &__image_container {
+            display: block;
+            margin-bottom: 20px;
+            max-width: 430px;
+            height: 600px;
+            overflow: hidden;
+            @include max-screen($xxxl) {
+                max-width: 400px;
+            }
+            @include max-screen($xxl) {
+                max-width: 370px;
+            }
+        }
+        &__image {
+            filter: blur(4px);
+            /*transition: all 0.4s ease-in;
+            transition: all 0.4s cubic-bezier(0.76, 0, 0.24, 1);*/
+            transition: all 0.4s ease-in-out;
+        }
+        &__category {
+            @include font-size(14);
+            line-height: 1;
+            letter-spacing: 0.05em;
+            text-decoration: underline;
+            color: $light-grey;
+            font-family: $font-accent;
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        &__title {
+            @include font-size(36);
+            @include max-screen($xxxl) {
+                @include font-size(34);
+            }
+            @include max-screen($xxl) {
+                @include font-size(32);
+            }
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+    }
 }

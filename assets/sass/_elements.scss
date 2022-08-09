@@ -1,21 +1,8 @@
 @import "elements/header";
 @import "elements/footer";
+@import "elements/menu";
+@import "elements/menu-toggle";
 @import "elements/hero-section";
+@import "elements/intro";
 @import "elements/projects";
-
-.text_logo {
-    font-family: $font-titles;
-    letter-spacing: 5px;
-    font-size: 42px;
-    color: $brand-secondary;
-    @extend %no-decoration;
-    @include max-screen($xl) {
-        font-size: 38px;
-    }
-    @include max-screen($lg) {
-        font-size: 36px;
-    }
-    @include max-screen($md) {
-        font-size: 30px;
-    }
-}
+@import "elements/clients";

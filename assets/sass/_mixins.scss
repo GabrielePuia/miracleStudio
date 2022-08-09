@@ -1,3 +1,11 @@
+@use "sass:math";
+
+// Font Size
+@mixin font-size($sizeValue) {
+  //font-size: ($sizeValue / 10) + rem;
+  font-size: math.div($sizeValue, 10) + rem;
+  //line-height: 1.25;
+}
 // Transition
 @mixin transition($duration:0.2s) {
   -webkit-transition: $duration;
@@ -13,7 +21,7 @@
 }
 
 @mixin max-screen($resolution) {
-  @media screen and (max-width: $resolution - 1) {
+  @media screen and (max-width: ($resolution) - 1) {
     @content;
   }
 }
