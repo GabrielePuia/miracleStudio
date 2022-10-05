@@ -9,7 +9,10 @@ header {
     z-index: 1;
     transition: background-color 0.6s;
     @include max-screen($lg) {
-        padding: 10px 35px;
+        padding: 0 35px;
+    }
+    @include max-screen($sm) {
+        padding: 0 20px;
     }
     nav {
         height: $header-height;
@@ -20,6 +23,12 @@ header {
             color: $brand-secondary;
             &::before {
                 content: none;
+            }
+            @include max-screen($lg) {
+                @include font-size(32);
+            }
+            @include max-screen($sm) {
+                @include font-size(28);
             }
         }
     }

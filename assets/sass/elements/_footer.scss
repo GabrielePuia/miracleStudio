@@ -1,5 +1,14 @@
 .footer {
-    padding: 400px 20px 60px;
+    padding: 400px 30px 60px;
+    @include max-screen($xl) {
+        padding-top: 210px;
+    }
+    @include max-screen($lg) {
+        padding-top: 180px;
+    }
+    @include max-screen($md) {
+        padding-top: 150px;
+    }
     &__contacts {
         margin-bottom: 90px;
         .contacts {
@@ -17,12 +26,18 @@
                 @include max-screen($lg) {
                     @include font-size(48);
                 }
+                @include max-screen($sm) {
+                    @include font-size(42);
+                }
             }
             &__list {
                 display: flex;
                 align-items: center;
                 gap: 80px;
                 justify-content: center;
+                @include max-screen($lg) {
+                    gap: 40px;
+                }
                 li {
                     position: relative;
                     &:not(:last-of-type) {
@@ -36,11 +51,16 @@
                             top: 50%;
                             right: -40px;
                             transform: translate(-50%, -50%);
-
+                            @include max-screen($lg) {
+                                right: -25px;
+                            }
                         }
                     }
                     a {
                         @include font-size(24);
+                        @include max-screen($sm) {
+                            @include font-size(20);
+                        }
                     }
                 }
             }

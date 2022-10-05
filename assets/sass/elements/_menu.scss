@@ -15,10 +15,7 @@
         transform-origin: right;
         @extend %no-spacing;
     }
-
-    &.collapsed {
-        left: -1px;
-    }
+    
     &__body {
         height: 100%;
         li {
@@ -29,6 +26,9 @@
             .menu__links-column {
                 height: 100%;
                 @include flex-justify-align(center, center);
+                @include max-screen($lg) {
+                    height: calc(100% - 120px);
+                }
                 .menu__links {
                     li {
                         margin-bottom: 20px;
@@ -36,11 +36,22 @@
                             margin: 0;
                         }
                         a {
-                            font-size: 72px;
+                            @include font-size(72);
                             font-family: $font-titles;
+                            @include max-screen($xxl) {
+                                @include font-size(68);
+                            }
+                            @include max-screen($xl) {
+                                @include font-size(64);
+                            }
+                            @include max-screen($lg) {
+                                @include font-size(60);
+                            }
                             &:hover {
                                 &::before {
-                                    width: 100%;
+                                    @include min-screen($lg) {
+                                        width: 100%;
+                                    }
                                 }
                             }
                             &::before {
@@ -56,20 +67,42 @@
             }
             .menu__content-column {
                 @include flex-align(center);
+                @include max-screen($lg) {
+                    justify-content: center;
+                    height: 120px;
+                }
                 .menu__content {
                     //max-width: 500px;
                     .text_logo {
-                        font-size: 84px;
+                        @include font-size(84);
                         margin-bottom: 20px;
+                        @include max-screen($xxl) {
+                            @include font-size(78);
+                        }
+                        @include max-screen($xl) {
+                            @include font-size(74);
+                        }
+                        @include max-screen($lg) {
+                            @include font-size(70);
+                        }
+                        @include max-screen($sm) {
+                            @include font-size(66);
+                        }
+                        @include max-screen($sm) {
+                            @include font-size(62);
+                        }
                     }
                     .menu__paragraph {
-                        font-size: 24px;
+                        @include font-size(24);
                         margin-bottom: 20px;
                     }
                     .contact_list {
                         @include flex-direction-align(row, center);
+                        gap: 30px;
+                        @include max-screen($lg) {
+                            gap: 60px;
+                        }
                         li {
-                            margin-right: 30px;
                             a {
                                 &::before {
                                     content: none;
