@@ -54,6 +54,8 @@
             }
         }
         &__image {
+            height: 100%;
+            object-fit: cover;
             filter: blur(4px);
             /*transition: all 0.4s ease-in;
             transition: all 0.4s cubic-bezier(0.76, 0, 0.24, 1);*/

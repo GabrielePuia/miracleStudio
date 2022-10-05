@@ -14,8 +14,23 @@
         display: block;
         max-width: 1040px;
         margin-bottom: 60px;
-        @include font-size(64);
         text-align: center;
+        @include font-size(64);
+        @include max-screen($xl) {
+            @include font-size(60);
+        }
+        @include max-screen($lg) {
+            @include font-size(54);
+        }
+        @include max-screen($md) {
+            @include font-size(46);
+        }
+        @include max-screen($sm) {
+            @include font-size(36);
+        }
+        @include max-screen($xs) {
+            @include font-size(32);
+        }
     }
     .small_divider {
         margin-bottom: 30px;

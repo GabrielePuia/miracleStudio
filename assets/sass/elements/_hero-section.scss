@@ -8,11 +8,17 @@
     &__image {
         max-height: 80vh;
         border-top-left-radius: 256px;
-        @include max-screen($xxl) {
-            max-height: 85vh;
+        @include max-screen($lg) {
+            max-height: 70vh;
+            padding: 0 30px;
+            max-width: 100%;
         }
-        @include max-screen($xl) {
-            max-height: 90vh;
+        @include max-screen($md) {
+            max-width: 80vw;
+        }
+        @include max-screen($sm) {
+            padding: 0 15px;
+            border-top-left-radius: 175px;
         }
     }
     &__title {
@@ -21,14 +27,39 @@
         left: 50%;
         transform: translate(-50%, -50%);
         transform: translateX(-50%);
-        font-size: 290px;
+        @include font-size(290);
+        @include max-screen($xl) {
+            @include font-size(250);
+        }
+        @include max-screen($lg) {
+            @include font-size(220);
+        }
+        @include max-screen($md) {
+            @include font-size(170);
+        }
+        @include max-screen($sm) {
+            @include font-size(120);
+        }
+        @include max-screen($xs) {
+            @include font-size(92);
+        }
     }
     &__subtitle {
         font-family: $font-paragraphs;
-        font-size: 36px;
+        @include font-size(36);;
         position: absolute;
-        top: 30%;
+        top: 20%;
         left: 0;
+        @include max-screen($md) {
+            @include font-size(32);
+            left: 10px;
+        }
+        @include max-screen($sm) {
+            @include font-size(30);
+        }
+        @include max-screen($xs) {
+            @include font-size(26);
+        }
     }
     &__cta {
         position: absolute;
@@ -39,6 +70,23 @@
         }
         @include max-screen($xl) {
             bottom: 5vh;
+        }
+        @include max-screen($sm) {
+            right: 5vh;
+        }
+        img {
+            @include max-screen($lg) {
+                width: 150px;
+            }
+            @include max-screen($md) {
+                width: 130px;
+            }
+            @include max-screen($sm) {
+                width: 110px;
+            }
+            @include max-screen($xs) {
+                width: 96px;
+            }
         }
     }
 }

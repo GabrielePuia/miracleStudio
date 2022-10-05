@@ -3,24 +3,35 @@
     &__list {
         display: flex;
         justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        gap: 180px;
+        @include max-screen($xxxl) {
+            gap: 150px;
+        }
+        @include max-screen($xxl) {
+            gap: 120px;
+        }
+        @include max-screen($xl) {
+            gap: 90px;
+        }
         li {
             img {
-                height: 80px;
+                height: 60px;
             }
             &:nth-of-type(2) {
                 img {
-                    height: 45px;
+                    height: 35px;
                 }
             }
             &:nth-of-type(3) {
                 img {
-                    height: 80px;
+                    height: 60px;
                 }
             }
             &:nth-of-type(4) {
                 img {
-                    height: 60px;
+                    height: 50px;
                 }
             }
         }

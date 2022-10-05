@@ -6,10 +6,17 @@
             &__title {
                 display: block;
                 width: 660px;
+                max-width: 100%;
                 margin: 0 auto;
                 @include font-size(60);
                 margin-bottom: 30px;
                 text-align: center;
+                @include max-screen($xl) {
+                    @include font-size(52);
+                }
+                @include max-screen($lg) {
+                    @include font-size(48);
+                }
             }
             &__list {
                 display: flex;
