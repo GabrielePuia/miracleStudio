@@ -1,4 +1,4 @@
-var header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu;
+var header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu, tlIntro;
 
 header = document.getElementsByTagName("header")[0];
 menuToggle = document.getElementById("menu-toggle");
@@ -8,10 +8,23 @@ menuContainer = document.getElementById("menu");
 menuBody = document.getElementById("menu-body");
 menuTopBorder = menuBody.querySelector("hr");
 
+projectContainers = document.querySelectorAll(".project");
+
 tlOpeningMenu1 = gsap.timeline();
 tlOpeningMenu2 = gsap.timeline();
 tlClosingMenu1 = gsap.timeline();
 tlClosingMenu2 = gsap.timeline();
+
+tlIntro = gsap.timeline();
+function startIntroAnimation() {
+    tlIntro.fromTo(".hero__title",{y: 20}, {y:0, opacity: 1, duration: 1.6, ease: "power2.inOut"})
+    .to(".hero__title", {filter: "blur(0px)", duration: 1.2/*, delay: 0*/, ease: "power2.inOut"}, "<")
+    .addLabel("endTitleAnimation", 1.2)
+    .to(".hero__title", {filter: "none", duration: 0.001})
+    .to(".hero__subtitle", {opacity: 1, duration: 0.6, ease: "power2.inOut"}, "endTitleAnimation")
+    .to(".hero__cta", {opacity: 1, duration: 0.6, delay: 0.2, ease: "power2.inOut"}, "<");
+}
+
 
 function showHideMenu() {
     if (menuToggleCheckbox.checked) {//OPEN MENU
@@ -79,6 +92,28 @@ function showHideMenu() {
     }
 }
 
+
+function addProjectHoverAnimation(element) {
+    let tl = gsap.timeline({ paused: true, reversed: true });
+    let projectGsapSelector = gsap.utils.selector(element);
+    
+    tl.to(projectGsapSelector(".project__image"), {filter: "blur(0px)", duration: 0.6, ease: "power1.inOut"})
+    .fromTo(projectGsapSelector(".project__category"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.2, ease: "power1.inOut"}, "<")
+    .fromTo(projectGsapSelector(".project__title"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.1, ease: "power1.inOut"}, "<");
+    
+    function checkExecuteAnimation() {
+        //If the animation is reversed start it(mouseover), otherwise rewind it(mouseout)
+        tl.reversed() ? tl.play() : tl.reverse();
+    }
+
+    element.addEventListener('mouseover', function() {
+        checkExecuteAnimation();
+    });
+    element.addEventListener('mouseout', function() {
+        checkExecuteAnimation();
+    });
+}
+
 window.onload = function (event) {
     //Current year 
     var currentYearSpan = document.getElementById("current-year");
@@ -86,5 +121,11 @@ window.onload = function (event) {
 
     menuToggle.addEventListener("click", function () {
         showHideMenu();
+    });
+    
+    startIntroAnimation();
+    
+    projectContainers.forEach(function(element) {
+        addProjectHoverAnimation(element);
     });
 };

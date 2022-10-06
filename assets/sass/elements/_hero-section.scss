@@ -27,6 +27,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         transform: translateX(-50%);
+        
+        opacity: 0;        filter: blur(6px);
+        //transition: filter 0.8s;        will-change: filter;
+        
         @include font-size(290);
         @include max-screen($xl) {
             @include font-size(250);
@@ -50,6 +54,7 @@
         position: absolute;
         top: 20%;
         left: 0;
+        opacity: 0;
         @include max-screen($md) {
             @include font-size(32);
             left: 10px;
@@ -65,6 +70,9 @@
         position: absolute;
         bottom: 10vh;
         right: 0;
+        opacity: 0;
+        animation: rotateFull 6s linear infinite;
+        transition: none;
         @include max-screen($xxl) {
             bottom: 7.5vh;
         }
@@ -75,9 +83,10 @@
             right: 5vh;
         }
         img {
-            @include max-screen($lg) {
+            width: 150px;
+            /*@include max-screen($lg) {
                 width: 150px;
-            }
+            }*/
             @include max-screen($md) {
                 width: 130px;
             }
