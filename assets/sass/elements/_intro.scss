@@ -19,6 +19,8 @@
         max-width: 1040px;
         margin-bottom: 60px;
         text-align: center;
+        opacity: 0;
+        filter: blur(6px);
         @include font-size(64);
         @include max-screen($xl) {
             @include font-size(60);

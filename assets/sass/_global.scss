@@ -27,6 +27,7 @@ body {
 	//padding-top: $header-height;
 	background-color: $brand-primary;
 	color: $brand-secondary;
+    overflow-x: hidden;
 }
 img {
 	max-width: 100%;

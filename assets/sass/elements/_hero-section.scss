@@ -28,7 +28,8 @@
         transform: translate(-50%, -50%);
         transform: translateX(-50%);
         
-        opacity: 0;        filter: blur(6px);
+        opacity: 0;
+        filter: blur(6px);
         //transition: filter 0.8s;        will-change: filter;
         
         @include font-size(290);

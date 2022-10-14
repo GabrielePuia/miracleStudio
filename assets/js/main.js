@@ -1,4 +1,4 @@
-var header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu, tlIntro;
+var header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu, tlIntro, tlAbout;
 
 header = document.getElementsByTagName("header")[0];
 menuToggle = document.getElementById("menu-toggle");
@@ -15,6 +15,9 @@ tlOpeningMenu2 = gsap.timeline();
 tlClosingMenu1 = gsap.timeline();
 tlClosingMenu2 = gsap.timeline();
 
+gsap.registerPlugin(ScrollTrigger);
+
+/********** INTRO ANIMATION **********/
 tlIntro = gsap.timeline();
 function startIntroAnimation() {
     tlIntro.fromTo(".hero__title",{y: 20}, {y:0, opacity: 1, duration: 1.6, ease: "power2.inOut"})
@@ -25,7 +28,26 @@ function startIntroAnimation() {
     .to(".hero__cta", {opacity: 1, duration: 0.6, delay: 0.2, ease: "power2.inOut"}, "<");
 }
 
+/********** ABOUT ANIMATION **********/
 
+/*tlAbout = gsap.timeline();
+tlAbout.fromTo(".intro__text",{y: 20}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
+.to(".intro__text", {filter: "blur(0px)", duration: 1, ease: "power2.inOut"}, "<");
+*/
+var introText = document.getElementById("intro-text");
+
+tlAbout = gsap.timeline()
+    .fromTo(introText,{y: 30}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
+    .to(introText, {filter: "blur(0px)", duration: 1/*, delay: 0*/, ease: "power2.inOut"}, "<")
+
+ScrollTrigger.create({
+    trigger:introText,
+    start:"top 90%",
+    toggleActions:"play none none reverse",
+    animation:tlAbout
+})
+
+/********** MENU ANIMATION **********/
 function showHideMenu() {
     if (menuToggleCheckbox.checked) {//OPEN MENU
         gsap.to(header, { duration: 0.01, backgroundColor: "#111111" });
@@ -93,6 +115,7 @@ function showHideMenu() {
 }
 
 
+/********** PROJECT HOVER ANIMATION **********/
 function addProjectHoverAnimation(element) {
     let tl = gsap.timeline({ paused: true, reversed: true });
     let projectGsapSelector = gsap.utils.selector(element);
