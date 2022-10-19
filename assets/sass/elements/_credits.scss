@@ -1,0 +1,41 @@
+
+$bg_color_light: #e7ad56;
+
+#credits_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $brand-primary, $alpha: 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+    opacity: 0;
+    .credits {
+        opacity: 0;
+        background-color: $brand-primary;
+        border: solid 1px rgba($color: $brand-secondary, $alpha: 0.2);
+        padding: 60px;
+        border-radius: 10%;
+        position: relative;
+        p {
+            font-size: 14px;
+            a {
+                text-decoration: underline;
+            }
+        }
+        &__close_btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 15px;
+            height: 15px;
+            background-size: cover;
+            background-image: url(../images/close.svg);
+            //background-image: url("data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xOS44NTM0NTQ2LDE5LjE0NjU0NTRMMTIuNzA2OTA5MiwxMmw3LjE0NjU0NTQtNy4xNDY1NDU0YzAuMTg3MTk0OC0wLjE5MzcyNTYsMC4xODcxOTQ4LTAuNTAwOTE1NSwwLTAuNjk0NzAyMWMtMC4xOTE4MzM1LTAuMTk4NjA4NC0wLjUwODM2MTgtMC4yMDQxMDE2LTAuNzA2OTcwMi0wLjAxMjI2ODFsLTcuMTQ2NTQ1NCw3LjE0NjU0NTRMNC44NTM0NTQ2LDQuMTQ2NTQ1NGMtMC4xOTM3MjU2LTAuMTg3MTMzOC0wLjUwMDkxNTUtMC4xODcxMzM4LTAuNjk0NzAyMSwwQzMuOTYwMTQ0LDQuMzM4Mzc4OSwzLjk1NDY1MDksNC42NTQ5MDcyLDQuMTQ2NDg0NCw0Ljg1MzUxNTZMMTEuMjkyOTY4OCwxMmwtNy4xNDY0ODQ0LDcuMTQ2NDg0NGMtMC4wOTM3NSwwLjA5Mzc1LTAuMTQ2NDIzMywwLjIyMDg4NjItMC4xNDY0MjMzLDAuMzUzNDU0NkM0LDE5Ljc3NjA2Miw0LjIyMzg3NywxOS45OTk5MzksNC41LDIwYzAuMTMyNjI5NCwwLjAwMDEyMjEsMC4yNTk4MjY3LTAuMDUyNjEyMywwLjM1MzQ1NDYtMC4xNDY1NDU0bDcuMTQ2NDg0NC03LjE0NjQ4NDRsNy4xNDY1NDU0LDcuMTQ2NTQ1NEMxOS4yNDAxMTIzLDE5Ljk0NzQ0ODcsMTkuMzY3MzcwNiwyMC4wMDAxODMxLDE5LjUsMjBjMC4xMzI1MDczLTAuMDAwMDYxLDAuMjU5NTgyNS0wLjA1MjY3MzMsMC4zNTMzMzI1LTAuMTQ2MzYyM0MyMC4wNDg2NDUsMTkuNjU4Mzg2MiwyMC4wNDg3MDYxLDE5LjM0MTc5NjksMTkuODUzNDU0NiwxOS4xNDY1NDU0eiIvPjwvc3ZnPg==")
+        }
+    }
+}

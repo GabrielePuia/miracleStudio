@@ -196,9 +196,25 @@
         <div class="footer__last_row">
             <span class="footer__copyright">@<span id="current-year"></span> Miracle Studio</span>
             <!--<span class="footer__credits"><a href="https://www.gpuia.it" target="_blank">website by gpuia</a></span>-->
-            <span class="footer__credits">Credits</span>
+            <span class="footer__credits"><a onclick="openCredits()">Credits</a></span>
         </div>
     </footer>
+    
+    <div id="credits_bg">
+        <div class="credits">
+            <p>created by <a href="https://www.gpuia.it" target="_blank">gpuia</a></p>
+            <p><br><br>Miracle font from <a href="https://www.behance.net/artemnevsky" target="_blank">Artem Nevsky</a></p>
+            <p>Icons from <a href="https://iconscout.com">IconScout</a></p>
+            <p>Images from <a href="https://unsplash.com/">Unsplash</a></p>
+            <div style="display:none;">
+                <p><br><br><a href="https://iconscout.com/icons/refresh" target="_blank">Refresh Icon</a> by <a href="https://iconscout.com/contributors/jemismali">Jemis Mali</a> on <a href="https://iconscout.com">IconScout</a></p>
+                <p><a href="https://iconscout.com/icon/chevron-25" target="_blank">Chevron Left Icon</a> by <a href="https://iconscout.com/contributors/daniel-bruce" target="_blank">Daniel Bruce</a> on <a href="https://iconscout.com">IconScout</p>
+                <p><a href="https://iconscout.com/icon/chevron-27" target="_blank">Chevron Right Icon</a> by <a href="https://iconscout.com/contributors/daniel-bruce" target="_blank">Daniel Bruce</a> on <a href="https://iconscout.com">IconScout</p>
+                <p><a href="https://iconscout.com/icons/close" target="_blank">Close Icon</a> by <a href="https://iconscout.com/contributors/unicons">Unicons Font</a> on <a href="https://iconscout.com">IconScout</a></p>
+            </div>
+            <a class="credits__close_btn" onclick="closeCredits()"></a>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 

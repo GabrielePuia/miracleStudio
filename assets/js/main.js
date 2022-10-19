@@ -10,10 +10,13 @@ menuTopBorder = menuBody.querySelector("hr");
 
 projectContainers = document.querySelectorAll(".project");
 
+creditsWrapper = document.getElementById("credits_bg");
+
 tlOpeningMenu1 = gsap.timeline();
 tlOpeningMenu2 = gsap.timeline();
 tlClosingMenu1 = gsap.timeline();
 tlClosingMenu2 = gsap.timeline();
+creditsTl = gsap.timeline();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +68,17 @@ ScrollTrigger.create({
     toggleActions:"play none none none",
     animation:tlcontact
 })
+
+/********** CREDITS ANIMATION **********/
+function openCredits() {
+    creditsTl.to('#credits_bg', {display: "flex", opacity: 1, duration: 0.4, ease: "power2.inOut"})
+    .fromTo('#credits_bg .credits', {y: 20, duration: 0.8, ease: "power2.inOut"}, {y: 0, opacity: 1, ease: "power2.inOut"});
+}
+function closeCredits() {
+    creditsTl.to('#credits_bg .credits', {y: 20, opacity: 0, duration: 0.8, ease: "power2.inOut"})
+    .to('#credits_bg', {display: "none", opacity: 0, duration: 0.4, delay: 0.3, ease: "power2.inOut"}, "<");
+}
+
 /********** MENU ANIMATION **********/
 function showHideMenu() {
     if (menuToggleCheckbox.checked) {//OPEN MENU
@@ -168,5 +182,11 @@ window.onload = function (event) {
     
     projectContainers.forEach(function(element) {
         addProjectHoverAnimation(element);
+    });
+
+    creditsWrapper.addEventListener("click", function(e){
+        if (e.target === this) {
+            closeCredits();
+        }
     });
 };

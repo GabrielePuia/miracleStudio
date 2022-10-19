@@ -90,4 +90,9 @@
             @include font-size(18);
         }
     }
+    &__credits {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
