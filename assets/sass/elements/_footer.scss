@@ -18,16 +18,31 @@
                 max-width: 100%;
                 margin: 0 auto;
                 @include font-size(60);
-                margin-bottom: 30px;
+                margin-bottom: 140px;
                 text-align: center;
+                opacity: 0;
+                filter: blur(6px);
+                @include max-screen($xxxl) {
+                    @include font-size(52);
+                    margin-bottom: 120px;
+                }
+                @include max-screen($xxl) {
+                    @include font-size(52);
+                }
                 @include max-screen($xl) {
                     @include font-size(52);
+                    margin-bottom: 110px;
                 }
                 @include max-screen($lg) {
                     @include font-size(48);
+                    margin-bottom: 90px;
+                }
+                @include max-screen($md) {
+                    margin-bottom: 60px;
                 }
                 @include max-screen($sm) {
                     @include font-size(42);
+                    margin-bottom: 30px;
                 }
             }
             &__list {

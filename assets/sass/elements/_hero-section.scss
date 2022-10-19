@@ -72,8 +72,6 @@
         bottom: 10vh;
         right: 0;
         opacity: 0;
-        animation: rotateFull 6s linear infinite;
-        transition: none;
         @include max-screen($xxl) {
             bottom: 7.5vh;
         }
@@ -83,11 +81,16 @@
         @include max-screen($sm) {
             right: 5vh;
         }
+        &:hover {
+            cursor: pointer;
+        } 
         img {
             width: 150px;
             /*@include max-screen($lg) {
                 width: 150px;
             }*/
+            animation: rotateFull 6s linear infinite;
+            transition: none;
             @include max-screen($md) {
                 width: 130px;
             }

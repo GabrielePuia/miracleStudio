@@ -28,25 +28,43 @@ function startIntroAnimation() {
     .to(".hero__cta", {opacity: 1, duration: 0.6, delay: 0.2, ease: "power2.inOut"}, "<");
 }
 
+/********** SCROLL TO BOTTOM ANIMATION **********/
+function scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
 /********** ABOUT ANIMATION **********/
 
 /*tlAbout = gsap.timeline();
-tlAbout.fromTo(".intro__text",{y: 20}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
-.to(".intro__text", {filter: "blur(0px)", duration: 1, ease: "power2.inOut"}, "<");
+tlAbout.fromTo(".about__text",{y: 20}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
+.to(".about__text", {filter: "blur(0px)", duration: 1, ease: "power2.inOut"}, "<");
 */
-var introText = document.getElementById("intro-text");
-
+var aboutText = document.getElementById("about-text");
 tlAbout = gsap.timeline()
-    .fromTo(introText,{y: 30}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
-    .to(introText, {filter: "blur(0px)", duration: 1/*, delay: 0*/, ease: "power2.inOut"}, "<")
+    .fromTo(aboutText,{y: 30}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
+    .to(aboutText, {filter: "blur(0px)", duration: 1/*, delay: 0*/, ease: "power2.inOut"}, "<")
 
 ScrollTrigger.create({
-    trigger:introText,
-    start:"top 90%",
-    toggleActions:"play none none reverse",
+    trigger:aboutText,
+    start:"top 90%", //Start when the top of the element hit the 90% of the page height (almost the bottom of the page), so just a little bit after the element enters the screen
+    //end:"bottom top",
+    toggleActions:"play none none none",
     animation:tlAbout
 })
 
+/********** CONTACTS TEXT ANIMATION **********/
+var contactText = document.getElementById("contacts-title");
+tlcontact = gsap.timeline()
+    .fromTo(contactText,{y: 30}, {y:0, opacity: 1, duration: 1.2, ease: "power2.inOut"})
+    .to(contactText, {filter: "blur(0px)", duration: 1/*, delay: 0*/, ease: "power2.inOut"}, "<")
+
+ScrollTrigger.create({
+    trigger:contactText,
+    start:"top 90%", //Start when the top of the element hit the 90% of the page height (almost the bottom of the page), so just a little bit after the element enters the screen
+    //end:"bottom top",
+    toggleActions:"play none none none",
+    animation:tlcontact
+})
 /********** MENU ANIMATION **********/
 function showHideMenu() {
     if (menuToggleCheckbox.checked) {//OPEN MENU
