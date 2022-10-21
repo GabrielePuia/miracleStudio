@@ -79,6 +79,28 @@ function closeCredits() {
     .to('#credits_bg', {display: "none", opacity: 0, duration: 0.4, delay: 0.3, ease: "power2.inOut"}, "<");
 }
 
+/********** PROJECT HOVER ANIMATION **********/
+function addProjectHoverAnimation(element) {
+    let tl = gsap.timeline({ paused: true, reversed: true });
+    let projectGsapSelector = gsap.utils.selector(element);
+    
+    tl.to(projectGsapSelector(".project__image"), {filter: "blur(0px)", duration: 0.6, ease: "power1.inOut"})
+    .fromTo(projectGsapSelector(".project__category"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.2, ease: "power1.inOut"}, "<")
+    .fromTo(projectGsapSelector(".project__title"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.1, ease: "power1.inOut"}, "<");
+    
+    function checkExecuteAnimation() {
+        //If the animation is reversed start it(mouseover), otherwise rewind it(mouseout)
+        tl.reversed() ? tl.play() : tl.reverse();
+    }
+
+    element.addEventListener('mouseover', function() {
+        checkExecuteAnimation();
+    });
+    element.addEventListener('mouseout', function() {
+        checkExecuteAnimation();
+    });
+}
+
 /********** MENU ANIMATION **********/
 function showHideMenu() {
     if (menuToggleCheckbox.checked) {//OPEN MENU
@@ -144,29 +166,6 @@ function showHideMenu() {
             })
             .to(menuToggle, { duration: 0.01, pointerEvents: "auto" });
     }
-}
-
-
-/********** PROJECT HOVER ANIMATION **********/
-function addProjectHoverAnimation(element) {
-    let tl = gsap.timeline({ paused: true, reversed: true });
-    let projectGsapSelector = gsap.utils.selector(element);
-    
-    tl.to(projectGsapSelector(".project__image"), {filter: "blur(0px)", duration: 0.6, ease: "power1.inOut"})
-    .fromTo(projectGsapSelector(".project__category"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.2, ease: "power1.inOut"}, "<")
-    .fromTo(projectGsapSelector(".project__title"), {y: 5}, {opacity: 1, y: 0, duration: 0.4, delay: 0.1, ease: "power1.inOut"}, "<");
-    
-    function checkExecuteAnimation() {
-        //If the animation is reversed start it(mouseover), otherwise rewind it(mouseout)
-        tl.reversed() ? tl.play() : tl.reverse();
-    }
-
-    element.addEventListener('mouseover', function() {
-        checkExecuteAnimation();
-    });
-    element.addEventListener('mouseout', function() {
-        checkExecuteAnimation();
-    });
 }
 
 window.onload = function (event) {

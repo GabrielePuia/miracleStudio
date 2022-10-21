@@ -2,18 +2,18 @@
     position: relative;
     width: 25px;
     height: 25px;
-    cursor: pointer;
+    //cursor: pointer;
     z-index: 2;
     @include max-screen($lg) {
         display: block;
     }
     
-    .menu-icon__cheeckbox {
+    .menu-icon__checkbox {
         display: block;
         width: 100%;
         height: 100%;
         position: relative;
-        cursor: pointer;
+        //cursor: pointer;
         z-index: 3;
         -webkit-touch-callout: none;
         position: absolute;
@@ -46,7 +46,7 @@
         }
     }
     &.active,
-    .menu-icon__cheeckbox:checked + div {
+    .menu-icon__checkbox:checked + div {
         span {
             &:first-of-type {
                 transform: rotate(45deg);
@@ -61,8 +61,8 @@
 
     &.active:hover span:first-of-type,
     &.active:hover span:last-of-type,
-    &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
-    &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+    &:hover .menu-icon__checkbox:checked + div span:first-of-type,
+    &:hover .menu-icon__checkbox:checked + div span:last-of-type {
         width: 22px;
     }
 
