@@ -33,13 +33,13 @@
             gap: 60px;
         }*/
         &:last-of-type {
-            margin-top: 270px;
+            /*margin-top: 270px;
             @include max-screen($xxxl) {
                 margin-top: 240px;
             }
             @include max-screen($xxl) {
                 margin-top: 210px;
-            }
+            }*/
             @include max-screen($lg) {
                 margin-top: 90px;
                 padding: 0 30px 0 0;
