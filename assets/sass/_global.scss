@@ -28,7 +28,9 @@ body {
 	background-color: $brand-primary;
 	color: $brand-secondary;
     overflow-x: hidden;
-	cursor: none;
+    @include min-screen($lg) {
+        cursor: none;
+    }
 }
 img {
 	max-width: 100%;

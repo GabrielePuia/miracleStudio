@@ -16,6 +16,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
         
 
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
@@ -47,7 +48,7 @@
         <nav class="navbar">
             <a class="text_logo" href="index.html">Miracle Studio</a>
         
-            <div class="menu-icon" id="menu-toggle">
+            <div class="menu-icon magnetic" id="menu-toggle" data-magnet-strength="30">
             <input class="menu-icon__checkbox" type="checkbox" id="menu-toggle-checkbox" />
             <div>
                 <span></span>
@@ -61,19 +62,19 @@
                     <div class="row">
                         <div class="col-md-7 menu__links-column">
                         <ul class="menu__links">
-                            <li><a class="link-crossline" href="javascript:;">About</a></li>
-                            <li><a class="link-crossline" href="javascript:;">Gallery</a></li>
-                            <li><a class="link-crossline" href="javascript:;">Projects</a></li>
-                            <li><a class="link-crossline" href="javascript:;">Journal</a></li>
+                            <li><a class="link-crossline">About</a></li>
+                            <li><a class="link-crossline">Gallery</a></li>
+                            <li><a class="link-crossline">Projects</a></li>
+                            <li><a class="link-crossline">Journal</a></li>
                         </ul>
                         </div>
                         <div class="col-md-5 menu__content-column">
                         <div class="menu__content">
                             <li><h1 class="text_logo">Miracle Studio</h1></li>
                             <ul class="contact_list">
-                                <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="javascript:;"><i class="fas fa-envelope"></i></a></li>
+                                <li><a href="mailto:gabrielepuia@gmail.com?subject=Coming from Miracle Studio"><i class="fas fa-envelope"></i></a></li>
+                                <li><a><i class="fab fa-instagram"></i></a></li>
+                                <li><a><i class="fab fa-unsplash"></i></a></li>
                             </ul>
                         </div>
                         </div>
@@ -88,20 +89,20 @@
         <section class="hero">
             <div class="container">
                 <img class="hero__image" src="assets/images/hero2.jpg" alt="Miracle Studio">
-                <h2 class="hero__subtitle">Photography • studio</h2>
+                <h2 class="hero__subtitle">Photography <span style="font-size: 22px">•</span> studio</h2>
                 <h1 class="hero__title">Miracle</h1>
-                <a class="hero__cta" onclick="scrollToBottom();"><img src="assets/images/round_text.svg"></a>
+                <a class="hero__cta magnetic" data-magnet-strength="250"><img src="assets/images/round_text.svg"></a>
             </div>
         </section>
 
         <section class="about">
             <div class="about__content">
-                <h2 class="about__text" id="about-text">Capture moments, express emotions and represent the truth. This is what we do</h2>
+                <h2 class="about__text" id="about-text">Capture moments, express emotions, and represent the truth. This is what we do</h2>
                 <hr class="small_divider">
                 <div class="about__links">
-                    <a href="javascript:;" class="about__link link-crossline">About</a>
-                    <a href="javascript:;" class="about__link link-crossline">Gallery</a>
-                </div>    
+                    <a class="about__link link-crossline">About</a>
+                    <a class="about__link link-crossline">Gallery</a>
+                </div>
             </div>
         </section>
 
@@ -109,24 +110,22 @@
             <div class="projects__content">
                 <div class="projects__list">
 
-
-
                     <div class="projects__column" data-scroll data-scroll-speed="1">
-                        <a class="project" href="javascript:;">
+                        <a class="project">
                             <div class="project__image_container">
                                 <img class="project__image" src="assets/images/projects/6.jpg">
                             </div>
-                            <span class="project__category">Commercial</span>
-                            <h3 class="project__title">Maison Louis Marie</h3>
+                            <span class="project__category">Fashion</span>
+                            <h3 class="project__title">Anastasia book n2</h3>
                         </a>
-                        <a class="project" href="javascript:;">
+                        <a class="project">
                             <div class="project__image_container">
-                                <img class="project__image" src="assets/images/projects/2.jpg">
+                                <img class="project__image" src="assets/images/projects/1.jpg">
                             </div>
                             <span class="project__category">Commercial</span>
                             <h3 class="project__title">Maison Louis Marie</h3>
                         </a>
-                        <!--<a class="project" href="javascript:;">
+                        <!--<a class="project">
                             <div class="project__image_container">
                                 <img class="project__image" src="assets/images/projects/3.jpg">
                             </div>
@@ -136,30 +135,28 @@
                     </div>
                     
                     <div class="projects__column" data-scroll data-scroll-speed="3" >
-                        <a class="project" href="javascript:;">
+                        <a class="project">
                             <div class="project__image_container">
                                 <img class="project__image" src="assets/images/projects/4.jpg">
                             </div>
                             <span class="project__category">Commercial</span>
                             <h3 class="project__title">Desigual men collection</h3>
                         </a>
-                        <!--<a class="project" href="javascript:;">
+                        <a class="project">
+                            <div class="project__image_container">
+                                <img class="project__image" src="assets/images/projects/2.jpg">
+                            </div>
+                            <span class="project__category">Personal</span>
+                            <h3 class="project__title">Self-expression day 2021</h3>
+                        </a>
+                        <!--<a class="project">
                             <div class="project__image_container">
                                 <img class="project__image" src="assets/images/projects/5.jpg">
                             </div>
                             <span class="project__category">Commercial</span>
                             <h3 class="project__title">Maison Louis Marie</h3>
                         </a>-->
-                        <a class="project" href="javascript:;">
-                            <div class="project__image_container">
-                                <img class="project__image" src="assets/images/projects/1.jpg">
-                            </div>
-                            <span class="project__category">Commercial</span>
-                            <h3 class="project__title">Maison Louis Marie</h3>
-                        </a>
                     </div>
-
-
 
                 </div>
             </div>
@@ -190,14 +187,14 @@
                 <h4 class="contacts__title" id="contacts-title">Let's create something special</h4>
                 <ul class="contacts__list">
                     <li><a class="link-crossline" href="mailto:gabrielepuia@gmail.com?subject=Coming from Miracle Studio">Email</a></li>
-                    <li><a class="link-crossline" href="javascript:;">Instagram</a></li>
-                    <li><a class="link-crossline" href="javascript:;">Unsplash</a></li>
+                    <li><a class="link-crossline">Instagram</a></li>
+                    <li><a class="link-crossline">Unsplash</a></li>
                 </ul>
             </div>
             <div class="footer__last_row">
                 <span class="footer__copyright">@<span id="current-year"></span> Miracle Studio</span>
                 <!--<span class="footer__credits"><a href="https://www.gpuia.it" target="_blank">website by gpuia</a></span>-->
-                <span class="footer__credits"><a onclick="openCredits()">Credits</a></span>
+                <span class="footer__credits"><a class="link-crossline" onclick="openCredits()">Credits</a></span>
             </div>
         </footer>
     </main>

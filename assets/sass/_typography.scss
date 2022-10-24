@@ -42,6 +42,7 @@ a {
 	transition: all $default-transition-time;
 	&:hover {
 		color: inherit;
+		cursor: pointer;
 	}
 	&.link-crossline {
 		//display: inline-block;

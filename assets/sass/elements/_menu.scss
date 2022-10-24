@@ -27,7 +27,7 @@
                 height: 100%;
                 @include flex-justify-align(center, center);
                 @include max-screen($lg) {
-                    height: calc(100% - 120px);
+                    height: calc(100vh - #{$header-height} - 120px);
                 }
                 .menu__links {
                     li {
@@ -84,6 +84,7 @@
                         }
                         @include max-screen($lg) {
                             @include font-size(70);
+                            display: none;
                         }
                         @include max-screen($sm) {
                             @include font-size(66);

@@ -90,9 +90,10 @@
             @include font-size(18);
         }
     }
-    /*&__credits {
+    &__credits {
+        //text-decoration: underline;
         &:hover {
             cursor: pointer;
         }
-    }*/
+    }
 }

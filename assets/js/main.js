@@ -1,45 +1,57 @@
-var header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu, tlIntro, tlAbout;
+//const header, menuToggle, menuToggleCheckbox, menuContainer, tlOpeningMenu, tlClosingMenu, tlIntro, tlAbout;
 
-header = document.getElementsByTagName("header")[0];
-menuToggle = document.getElementById("menu-toggle");
-menuToggleCheckbox = document.getElementById("menu-toggle-checkbox");
-menuToggleCheckbox.checked = false;
-menuContainer = document.getElementById("menu");
-menuBody = document.getElementById("menu-body");
-menuTopBorder = menuBody.querySelector("hr");
+const header = document.getElementsByTagName("header")[0];
+const menuToggle = document.getElementById("menu-toggle");
+const menuToggleCheckbox = document.getElementById("menu-toggle-checkbox");
+ menuToggleCheckbox.checked = false;
+const menuContainer = document.getElementById("menu");
+const menuBody = document.getElementById("menu-body");
+const menuTopBorder = menuBody.querySelector("hr");
 
-projectContainers = document.querySelectorAll(".project");
+const projectContainers = document.querySelectorAll(".project");
 
-creditsWrapper = document.getElementById("credits_bg");
+const creditsWrapper = document.getElementById("credits_bg");
 
-tlOpeningMenu1 = gsap.timeline();
-tlOpeningMenu2 = gsap.timeline();
-tlClosingMenu1 = gsap.timeline();
-tlClosingMenu2 = gsap.timeline();
-creditsTl = gsap.timeline();
+const tlOpeningMenu1 = gsap.timeline();
+const tlOpeningMenu2 = gsap.timeline();
+const tlClosingMenu1 = gsap.timeline();
+const tlClosingMenu2 = gsap.timeline();
+const creditsTl = gsap.timeline();
+
+const $xs = 425;
+const $sm = 576;
+const $md = 768;
+const $lg = 992;
+const $xl = 1200;
+const $xxl = 1400;
+const $xxxl = 1600;
 
 gsap.registerPlugin(ScrollTrigger);
 
-//Locomotive scroll initialization
-const locoScroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
-  });
-  // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-  locoScroll.on("scroll", ScrollTrigger.update);
-  
-  // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
-  ScrollTrigger.scrollerProxy(".smooth-scroll", {
-    scrollTop(value) {
-      return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-    getBoundingClientRect() {
-      return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-    },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
-  });
-  
+if(window.innerWidth >= $lg) {
+    console.log("You are not on mobile; LocomotiveScroll active");
+    //Locomotive scroll initialization
+    const locoScroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true
+    });
+    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+    locoScroll.on("scroll", ScrollTrigger.update);
+
+    // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+    ScrollTrigger.scrollerProxy(".smooth-scroll", {
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+            getBoundingClientRect() {
+            return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+        },
+        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+        pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+    });
+} else {
+console.log("You are on mobile; LocomotiveScroll NOT active");
+}
 
 /********** INTRO ANIMATION **********/
 tlIntro = gsap.timeline();
@@ -53,9 +65,22 @@ function startIntroAnimation() {
 }
 
 /********** SCROLL TO BOTTOM ANIMATION **********/
+/* NONE OF THE SCROLL TO METHODS WORK: it scroll correctly but messes up with the locomotive scroll, so after the scroll you can't scroll up
 function scrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
+    
+    //Native scrollTo
+    //window.scrollTo(0, document.body.scrollHeight);
+    //GSAP scrollTo (plugin)
+    //gsap.to(window, {duration: 1, scrollTo:{y:"#footer", offsetY:0}});
+    
+
+    //Locomotive scrollTo
+    console.log("loco scrollTo");
+    const scroll = new LocomotiveScroll();
+    const target = document.querySelector('#footer');
+    scroll.scrollTo(target);
 }
+*/
 
 /********** ABOUT ANIMATION **********/
 
@@ -202,9 +227,14 @@ window.onload = function (event) {
     
     startIntroAnimation();
     
-    projectContainers.forEach(function(element) {
-        addProjectHoverAnimation(element);
-    });
+    if(window.innerWidth >= $lg) {
+        console.log("You are not on mobile; project Hover active");
+        projectContainers.forEach(function(element) {
+            addProjectHoverAnimation(element);
+        });
+    } else {
+    console.log("You are on mobile; project Hover NOT active");
+    }
 
     creditsWrapper.addEventListener("click", function(e){
         if (e.target === this) {
