@@ -4,10 +4,10 @@ header {
     left: 0;
     width: 100vw;
     padding: 0 50px;
-    //background-color: $brand-primary;
+    background-color: rgba(17,17,17,0); //Primary color in rgba transparent
     color: $brand-secondary;
     z-index: 1;
-    transition: background-color 0.6s;
+    //transition: background-color 0.6s;
     @include max-screen($lg) {
         padding: 0 35px;
     }

@@ -5,6 +5,7 @@ const menuToggle = document.getElementById("menu-toggle");
 const menuToggleCheckbox = document.getElementById("menu-toggle-checkbox");
  menuToggleCheckbox.checked = false;
 const menuContainer = document.getElementById("menu");
+const menuContent = document.getElementById("menu-content");
 const menuBody = document.getElementById("menu-body");
 const menuTopBorder = menuBody.querySelector("hr");
 
@@ -16,6 +17,11 @@ const tlOpeningMenu1 = gsap.timeline();
 const tlOpeningMenu2 = gsap.timeline();
 const tlClosingMenu1 = gsap.timeline();
 const tlClosingMenu2 = gsap.timeline();
+
+
+const tlMenuOpening = gsap.timeline();
+const tlMenuClosing = gsap.timeline();
+
 const creditsTl = gsap.timeline();
 
 const $xs = 425;
@@ -150,69 +156,32 @@ function addProjectHoverAnimation(element) {
 }
 
 /********** MENU ANIMATION **********/
+
+var totalOpeningAnimationTime = 1.6;
+var totalClosingAnimationTime = 1;
+
 function showHideMenu() {
-    if (menuToggleCheckbox.checked) {//OPEN MENU
-        gsap.to(header, { duration: 0.01, backgroundColor: "#111111" });
-        tlOpeningMenu1
-            .to(menuContainer, { duration: 0.01, display: "flex" })
-            .to(menuContainer, { duration: 0.6, opacity: "1" })
-            .to(menuTopBorder, { duration: 1, ease: "power4.in", width: "100%" })
-            .from(".menu__body .row .menu__links-column .menu__links li a", 0.8, {
-                y: 100,
-                opacity: 0,
-                ease: "power4.out",
-                stagger: {
-                    amount: 0.3
-                }
-            });
-        tlOpeningMenu2
-            .to(menuToggle, { duration: 0.61, pointerEvents: "none" })
-            .from(".menu__body .row .menu__content-column .menu__content li *", 0.8, {
-                y: 200,
-                opacity: 0,
-                ease: "power4.out",
-                stagger: {
-                    amount: 0.3
-                }
-            })
-            .to(menuToggle, { duration: 0.61, pointerEvents: "auto" });
-    } else {//CLOSEN MENU
-        gsap.to(menuToggle, { duration: 0.01, pointerEvents: "none" });
-        tlClosingMenu1
-            .to(".menu__body .row .menu__links-column .menu__links li a", 0.8, {
-                y: 100,
-                opacity: 0,
-                ease: "power4.in",
-                stagger: {
-                    amount: 0.3
-                }
-            })
-            .to(header, { duration: 1, opacity: "1" })
-            .to(header, { duration: 0.01, backgroundColor: "rgba(0,0,0,0)" });
-        tlClosingMenu2
-            .to(menuTopBorder, { duration: 1, ease: "power4.in", width: "0" })
-            .to(".menu__body .row .menu__content-column .menu__content li *", 0.8, {
-                y: 200,
-                opacity: 0,
-                ease: "power4.in",
-                stagger: {
-                    amount: 0.3
-                }
-            })
-            .to(menuContainer, { duration: 0.6, opacity: "0" })
-            .to(menuContainer, { duration: 0.01, display: "none" })
-            //ritorna allo stato normale per poter fare l'animazione dopo
-            .to(".menu__body .row .menu__links-column .menu__links li a", 0.1, {
-                y: 0,
-                opacity: 1,
-                ease: "power4.in"
-            })
-            .to(".menu__body .row .menu__content-column .menu__content li *", 0.1, {
-                y: 0,
-                opacity: 1,
-                ease: "power4.in"
-            })
-            .to(menuToggle, { duration: 0.01, pointerEvents: "auto" });
+    if (menuToggleCheckbox.checked) {
+        //OPENING MENU
+        tlMenuOpening.to(menuToggle, { duration: totalOpeningAnimationTime, pointerEvents: "none" })
+        .to(menuContainer, { duration: 0.01, display: "flex" }, "<")
+        .to(menuContainer, { duration: 0.6, opacity: 1, ease: "power4.in"}, "<")
+        .to(header, { duration: 0.6, backgroundColor: "rgba(17,17,17,1)", ease: "power4.in"}, "<")
+        .to(menuTopBorder, { duration: 0.6/*, delay: 0.2*/, width: "100%", ease: "power4.in"}, "<") //ends at 0.6
+        .addLabel("contentCheckpoint", 0.8)
+        .to(menuContent, { duration: 0.4, opacity: 1, ease: "power4.in"}, "contentCheckpoint") //ends at 1
+        .fromTo(".menu__body .row .menu__links-column .menu__links li a",{y: 1000, opacity: 0}, {y:0, opacity: 1, duration: 0.6, delay: 0.4, stagger: {amount: 0.4}, ease: "power4.out"}, "<")
+        .to(menuToggle, { duration: 0.01, pointerEvents: "auto" });
+    } else {
+        //CLOSING MENU
+        tlMenuClosing.to(menuToggle, { duration: totalClosingAnimationTime, pointerEvents: "none" })
+        .to(".menu__body .row .menu__links-column .menu__links li a", 0.4, { duration: 0.4, delay: 0.2, opacity: 0, ease: "power4.in"}, "<")
+        .to(menuContent, { duration: 0.4, opacity: 0, ease: "power4.in"}, "<")
+        .to(menuTopBorder, { duration: 0.6, ease: "power4.in", width: "0"})
+        .to(header, { duration: 0.6, backgroundColor: "rgba(17,17,17,0)", ease: "power4.in"}, "<")
+        .to(menuContainer, { duration: 0.6, opacity: 0, ease: "power4.in"}, "<")
+        .to(menuContainer, { duration: 0.01, display: "none" })
+        .to(menuToggle, { duration: 0.01, pointerEvents: "auto" });
     }
 }
 

@@ -1,3 +1,10 @@
+
+body:hover {
+  .cursor, .cursor_outline {
+    opacity: 1;
+  }
+}
+
 .cursor_outline {
   width: 60px;
   height: 60px;
@@ -7,11 +14,11 @@
   pointer-events: none;
   left: 0;
   top: 0;
+  opacity: 0;
   z-index: 999;
-  /*transform: translate(calc(-50% + 15px), -50%);*/
   transition: transform 0.1s, opacity 0.2s ease-out;
   &--hover {
-    opacity: 0;
+    opacity: 0 !important;
   }
   @include max-screen($lg) {
       display: none !important;
@@ -28,8 +35,9 @@
   top: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: width .4s, height .4s;
+  opacity: 0;
   z-index: 999;
+  transition: width .4s, height .4s;
   @include max-screen($lg) {
       display: none !important;
   }
